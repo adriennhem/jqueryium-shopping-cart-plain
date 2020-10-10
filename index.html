@@ -18,6 +18,36 @@
     <link href="css/custom.css" rel="stylesheet">
   </head>
   <body>
+    <div class="container">
+      <h1>Shopping Cart</h1>
+      <table>
+        <tr id="firstRow">
+          <th>Item</th>
+          <th>Unit Price</th>
+          <th>QTY</th>
+          <th>Subtotal</th>
+        </tr>
+        <tr id='inputRow'>
+          <td>
+            <input id='itemName' type="text">
+          </td>
+          <td>
+            <input id='itemPrice' type="text">
+          </td>
+          <td>
+            <button id='createButton'>Create</button>
+          </td>
+          <td>
+            <button class="btn btn-success">
+              Calculate Price
+            </button>
+          </td>
+        </tr>
+      </table>
 
+      <h2>Total Price:</h2>
+      <p id="totalPrice">$0</p>
+    </div>
+    
   </body>
 </html>
