@@ -18,7 +18,7 @@ createButton.on('click', function() {
                                 <input class='itemQuantity' data-item=${count} type="text">
                                 <button class='cancelButton' data-item=${count}>Cancel</button>
                             </td>
-                            <td class='itemSubtotal'></td>
+                            <td class='itemSubtotal'>$ <span>${itemPrice.val()}</span></td>
                         </tr>`)
         $('#inputRow').before(newItem);
     }
@@ -38,9 +38,18 @@ $(document).on('change', 'input.itemQuantity', function() {
     var price = $(`tr[data-item=${itemId}] td.itemPrice span`).text();
     price = parseFloat(price);
     var itemSubtotal = quantity * price;
-    $(`tr[data-item=${itemId}] td.itemSubtotal`).html(`$ <span>${itemSubtotal}</span>`);
+    $(`tr[data-item=${itemId}] td.itemSubtotal span`).text(itemSubtotal);
 });
 
+
+// calculate total price
+$(document).on('click', '.btn-success', function() {
+   var totalPrice = $('.itemSubtotal span').map(function(index, element) {
+        return Number($(this).text());
+    }).get().reduce((a, b) => a + b);
+
+    $('#totalPrice').text(`$ ${totalPrice}`);
+});
 
 
 });
